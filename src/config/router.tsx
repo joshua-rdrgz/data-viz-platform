@@ -3,6 +3,7 @@ import { DashboardPage } from '@/pages/dashboard-page';
 import { FullErrorPage } from '@/pages/full-error-page';
 import { LoginPage } from '@/pages/login-page';
 import { NotFoundPage } from '@/pages/not-found-page';
+import { RegisterPage } from '@/pages/register-page';
 import { createBrowserRouter, redirect } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+    errorElement: <FullErrorPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
     errorElement: <FullErrorPage />,
   },
   {
