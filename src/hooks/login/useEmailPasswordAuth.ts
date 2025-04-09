@@ -6,10 +6,21 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Authenticates a user using their email and password credentials
+ * through Firebase's email/password authentication system
+ */
 async function performLogin({ email, password }: LoginFormData) {
   return await signInWithEmailAndPassword(firebaseAuth, email, password);
 }
 
+/**
+ * React Query mutation hook for email/password authentication
+ * - Handles user login and updates query cache with user data
+ * - Displays success/error notifications
+ * - Navigates to dashboard on successful login
+ * - Utilizes localStorage to store user data
+ */
 export const useEmailPasswordAuth = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
