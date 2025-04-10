@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { VariablesSheet } from '@/components/variables-sheet';
-import { Download, RefreshCcw, Zap } from 'lucide-react';
+import { Download, RefreshCcw, RotateCcw, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const headerVariants = {
@@ -53,7 +53,12 @@ export const DashboardHeader = () => {
           </Button>
         </motion.div>
         <motion.div variants={buttonVariants}>
-          <VariablesSheet />
+          <VariablesSheet>
+            <Button variant='outline' size='sm'>
+              <RotateCcw className='h-4 w-4' />
+              Edit Variables
+            </Button>
+          </VariablesSheet>
         </motion.div>
         <motion.div variants={buttonVariants}>
           <Button variant='outline' size='sm'>

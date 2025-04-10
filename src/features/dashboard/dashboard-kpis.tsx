@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Plus, HelpCircle } from 'lucide-react';
 import { useVariablesStore } from '@/stores/use-variables-store';
 import { motion } from 'framer-motion';
+import { VariablesSheet } from '@/components/variables-sheet';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -64,16 +65,22 @@ export const DashboardKpis = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <h2 className='text-3xl font-bold'>Key Performance Indicators</h2>
-        <motion.div variants={buttonVariants} whileHover='hover' whileTap='tap'>
-          <Button
-            variant='outline'
-            size='sm'
-            className='flex items-center gap-1 dark:bg-main-background dark:border-sidebar-border'
+        <VariablesSheet>
+          <motion.div
+            variants={buttonVariants}
+            whileHover='hover'
+            whileTap='tap'
           >
-            Variables
-            <Plus className='h-4 w-4' />
-          </Button>
-        </motion.div>
+            <Button
+              variant='outline'
+              size='sm'
+              className='flex items-center gap-1 dark:bg-main-background dark:border-sidebar-border'
+            >
+              Variables
+              <Plus className='h-4 w-4' />
+            </Button>
+          </motion.div>
+        </VariablesSheet>
       </motion.div>
       <motion.div
         className='flex flex-wrap gap-6 w-full justify-center'

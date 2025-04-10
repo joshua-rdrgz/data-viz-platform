@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { FakeCollapsible } from '@/components/fake-collapsible';
 import {
   Sheet,
   SheetContent,
@@ -6,21 +6,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { FakeCollapsible } from '@/components/fake-collapsible';
-import { VariablesSheetTopbar } from '@/features/variables/variables-sheet-topbar';
-import { RotateCcw } from 'lucide-react';
 import { VariablesSheetSelection } from '@/features/variables/variables-sheet-selection';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { VariablesSheetTopbar } from '@/features/variables/variables-sheet-topbar';
 
-export const VariablesSheet = () => {
+export const VariablesSheet = ({ children }: React.PropsWithChildren) => {
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant='outline' size='sm'>
-          <RotateCcw className='h-4 w-4' />
-          Edit Variables
-        </Button>
-      </SheetTrigger>
+      <SheetTrigger asChild>{children}</SheetTrigger>
       <SheetContent className='min-w-full md:min-w-[700px] p-5 overflow-y-auto'>
         <SheetHeader>
           <SheetTitle className='text-2xl'>Edit Variables</SheetTitle>
