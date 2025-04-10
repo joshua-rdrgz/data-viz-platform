@@ -41,13 +41,13 @@ export const DashboardPage = () => {
         <BestScenarioResults />
       </motion.div>
       <motion.div
-        className='flex flex-col xl:flex-row gap-6 w-full'
+        className='flex flex-col lg:flex-row gap-6 w-full'
         variants={itemVariants}
       >
-        <div className='w-full xl:w-1/2'>
+        <div className='w-full lg:w-1/2'>
           <DashboardGraph />
         </div>
-        <div className='w-full xl:w-1/2'>
+        <div className='w-full lg:w-1/2'>
           <DashboardKpis />
         </div>
       </motion.div>

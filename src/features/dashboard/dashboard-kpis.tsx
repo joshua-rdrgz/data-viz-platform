@@ -93,7 +93,7 @@ export const DashboardKpis = () => {
             animate='visible'
             whileHover='hover'
             custom={index}
-            className='[241px] h-[214px]'
+            className='w-[241px] h-[214px]'
           >
             <Card className='p-6 h-full'>
               <CardContent className='p-0 h-full flex flex-col'>
@@ -103,9 +103,11 @@ export const DashboardKpis = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className='text-xl font-medium text-white break-words flex gap-1 items-center justify-between'>
-                    <span>{variable.name}</span>
-                    <HelpCircle className='h-4 w-4 text-[#888888] hover:text-gray-300 transition-colors' />
+                  <div className='text-xl font-medium text-white flex gap-1 items-center justify-between'>
+                    <span className='max-w-[180px] break-words'>
+                      {variable.name}
+                    </span>
+                    <HelpCircle className='h-4 w-4 text-[#888888] hover:text-gray-300 transition-colors flex-shrink-0' />
                   </div>
                   <div className='text-xs text-[#BBBBBB] mt-1'>
                     {variable.description}

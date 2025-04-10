@@ -101,8 +101,8 @@ export const DashboardGraph = () => {
               </Select>
             </motion.div>
           </CardHeader>
-          <CardContent>
-            <div className='h-[400px] p-4'>
+          <CardContent className='p-0'>
+            <div className='w-full aspect-[16/9] sm:p-4'>
               <ChartContainer className='h-full w-full' config={chartConfig}>
                 <AreaChart
                   data={data}
