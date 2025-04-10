@@ -18,13 +18,13 @@ import {
 } from 'recharts';
 
 const data = [
-  { month: 'Apr', value: 30 },
-  { month: 'May', value: 45 },
-  { month: 'Jun', value: 40 },
-  { month: 'Jul', value: 65 },
-  { month: 'Aug', value: 50 },
+  { month: 'Apr', value: 35 },
+  { month: 'May', value: 20 },
+  { month: 'Jun', value: 45 },
+  { month: 'Jul', value: 89.6 },
+  { month: 'Aug', value: 60 },
   { month: 'Sep', value: 35 },
-  { month: 'Oct', value: 45 },
+  { month: 'Oct', value: 58 },
 ];
 
 const chartConfig = {
@@ -53,13 +53,14 @@ export const DashboardGraph = () => {
           </Select>
         </CardHeader>
         <CardContent>
-          <div className='h-[300px] p-4'>
+          <div className='h-[400px] p-4'>
             <ChartContainer className='h-full w-full' config={chartConfig}>
               <AreaChart
                 data={data}
                 width={100}
                 height={100}
                 style={{ width: '100%', height: '100%' }}
+                margin={{ top: 20, right: 30, left: 40, bottom: 20 }}
               >
                 <defs>
                   <pattern
@@ -105,24 +106,36 @@ export const DashboardGraph = () => {
                 />
                 <XAxis
                   dataKey='month'
-                  axisLine={false}
+                  axisLine={{ stroke: '#525252' }}
                   tickLine={false}
-                  tick={{ fill: '#959595' }}
+                  tick={{
+                    fill: '#ffffff',
+                    fontSize: 14,
+                    style: { fill: '#ffffff' },
+                  }}
+                  dy={10}
                 />
                 <YAxis
-                  axisLine={false}
+                  axisLine={{ stroke: '#525252' }}
                   tickLine={false}
-                  tick={{ fill: '#959595' }}
-                  tickFormatter={(value) => `${value}K`}
+                  tick={{
+                    fill: '#ffffff',
+                    fontSize: 14,
+                    style: { fill: '#ffffff' },
+                  }}
+                  tickFormatter={(value) => `$${value}K`}
+                  dx={-10}
+                  domain={[0, 100]}
+                  ticks={[20, 40, 60, 80, 100]}
                 />
                 <Tooltip
-                  cursor={<CustomTooltipCursor />}
+                  cursor={<CustomTooltipCursor height={320} />}
                   content={({ active, payload }) => {
                     if (!active || !payload?.length) return null;
                     return (
                       <div className='rounded-lg border border-border bg-card p-4 shadow-lg space-y-1.5'>
                         <p className='text-lg font-semibold'>
-                          ${payload[0].value}.60K
+                          ${payload[0].value}K
                         </p>
                         <p className='text-muted-foreground text-sm'>
                           4.6% above target

@@ -9,6 +9,7 @@ interface CustomCursorProps {
 
 export const CustomTooltipCursor = ({ points, height }: CustomCursorProps) => {
   if (!points?.[0]) return null;
+
   return (
     <line
       x1={points[0].x}
@@ -18,6 +19,7 @@ export const CustomTooltipCursor = ({ points, height }: CustomCursorProps) => {
       stroke='rgb(220, 255, 127)'
       strokeWidth={2}
       strokeDasharray='4'
+      style={{ zIndex: 10 }}
     />
   );
 };
