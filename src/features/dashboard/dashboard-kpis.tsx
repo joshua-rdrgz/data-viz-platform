@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Plus } from 'lucide-react';
+import { Plus, HelpCircle } from 'lucide-react';
 import { useVariablesStore } from '@/stores/use-variables-store';
 import { motion } from 'framer-motion';
 
@@ -76,7 +76,7 @@ export const DashboardKpis = () => {
         </motion.div>
       </motion.div>
       <motion.div
-        className='grid grid-cols-2 gap-6 flex-grow'
+        className='flex flex-wrap gap-6 w-full justify-center'
         variants={{
           visible: {
             transition: {
@@ -93,6 +93,7 @@ export const DashboardKpis = () => {
             animate='visible'
             whileHover='hover'
             custom={index}
+            className='[241px] h-[214px]'
           >
             <Card className='p-6 h-full'>
               <CardContent className='p-0 h-full flex flex-col'>
@@ -102,15 +103,16 @@ export const DashboardKpis = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className='text-lg font-medium text-white break-words'>
-                    {variable.name}
+                  <div className='text-xl font-medium text-white break-words flex gap-1 items-center justify-between'>
+                    <span>{variable.name}</span>
+                    <HelpCircle className='h-4 w-4 text-[#888888] hover:text-gray-300 transition-colors' />
                   </div>
-                  <div className='text-xs text-gray-400 mt-1'>
+                  <div className='text-xs text-[#BBBBBB] mt-1'>
                     {variable.description}
                   </div>
                 </motion.div>
                 <motion.div
-                  className='text-2xl font-semibold self-end mt-auto'
+                  className='text-4xl font-semibold self-end mt-auto'
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 + 0.2 }}
