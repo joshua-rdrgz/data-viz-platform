@@ -8,11 +8,11 @@ export const DashboardPage = () => {
     <div className='flex flex-col gap-12'>
       <DashboardHeader />
       <BestScenarioResults />
-      <div className='grid grid-cols-[60%_40%] gap-6'>
-        <div className='h-[500px]'>
+      <div className='flex flex-col xl:flex-row gap-6 w-full'>
+        <div className='w-full xl:w-1/2'>
           <DashboardGraph />
         </div>
-        <div className='h-[500px]'>
+        <div className='w-full xl:w-1/2'>
           <DashboardKpis />
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Download, RefreshCcw, Zap } from 'lucide-react';
 
 export const DashboardHeader = () => {
   return (
-    <div className='flex items-center justify-between pt-4'>
+    <div className='flex flex-wrap gap-7 items-center justify-between pt-4'>
       <div className='flex items-center gap-3'>
         <Zap className='h-8 w-8' />
         <h1 className='text-4xl font-semibold'>Charging Station</h1>

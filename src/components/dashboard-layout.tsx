@@ -9,7 +9,6 @@ import {
 import { Outlet } from 'react-router-dom';
 import { Button } from './ui/button';
 import { SearchBar } from './ui/search-bar';
-import { ScrollArea } from './ui/scroll-area';
 
 export const DashboardLayout = () => {
   const navItems = [
@@ -27,9 +26,9 @@ export const DashboardLayout = () => {
   ];
 
   return (
-    <div className='flex h-screen m-2 border border-border rounded-lg overflow-hidden'>
+    <div className='flex h-screen w-full max-w-full overflow-x-hidden'>
       {/* Sidebar */}
-      <aside className='w-20 bg-sidebar flex flex-col items-center py-4 md:py-6 px-1 md:px-2 rounded-l-lg'>
+      <aside className='w-20 shrink-0 bg-sidebar flex flex-col items-center py-4 md:py-6 px-1 md:px-2 rounded-l-lg'>
         {/* Burger Menu */}
         <div className='hidden md:block'>
           <Menu className='h-7 w-7 text-sidebar-foreground' />
@@ -54,10 +53,10 @@ export const DashboardLayout = () => {
       </aside>
 
       {/* Main content */}
-      <div className='flex flex-col flex-1'>
+      <div className='flex flex-col flex-1 min-w-0'>
         {/* Top bar */}
-        <header className='h-20 bg-sidebar flex items-center justify-between px-12 rounded-t-lg'>
-          <div className='flex items-center gap-2'>
+        <header className='min-h-20 bg-sidebar flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 md:px-12 rounded-t-lg'>
+          <div className='flex flex-wrap items-center gap-2'>
             {topTabs.map((tab, index) => (
               <Button
                 key={index}
@@ -73,16 +72,14 @@ export const DashboardLayout = () => {
             ))}
           </div>
 
-          <SearchBar />
+          <div className='hidden lg:block'>
+            <SearchBar />
+          </div>
         </header>
 
         {/* Main content area */}
-        <main className='flex-1 bg-main-background px-8 py-8 border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg overflow-hidden'>
-          <ScrollArea className='h-full w-full'>
-            <div className='pr-10'>
-              <Outlet />
-            </div>
-          </ScrollArea>
+        <main className='bg-main-background px-4 md:px-8 py-8 border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg flex-1 min-w-0 overflow-x-auto'>
+          <Outlet />
         </main>
       </div>
     </div>
