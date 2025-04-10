@@ -4,7 +4,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { ChevronDown, MoreHorizontal } from 'lucide-react';
+import { ChevronDown, MoreHorizontal, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 
 export const BestScenarioResults = () => {
@@ -16,7 +16,7 @@ export const BestScenarioResults = () => {
         <CollapsibleTrigger asChild>
           <div className='flex items-center justify-between cursor-pointer'>
             <div className='flex items-center gap-3'>
-              <span className='text-scenario-icon text-xl'>✦</span>
+              <Sparkles className='text-scenario-icon text-xl' />
               <h2 className='text-xl font-medium text-scenario'>
                 Best Scenario Results
               </h2>

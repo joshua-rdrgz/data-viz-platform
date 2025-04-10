@@ -1,14 +1,15 @@
-import { Outlet } from 'react-router-dom';
 import {
-  Home,
   Bell,
   ClipboardList,
   CloudUpload,
-  Settings,
+  Home,
   Menu,
-  Search,
+  Settings,
 } from 'lucide-react';
+import { Outlet } from 'react-router-dom';
 import { Button } from './ui/button';
+import { SearchBar } from './ui/search-bar';
+import { ScrollArea } from './ui/scroll-area';
 
 export const DashboardLayout = () => {
   const navItems = [
@@ -26,7 +27,7 @@ export const DashboardLayout = () => {
   ];
 
   return (
-    <div className='flex h-screen m-2 border border-border rounded-lg'>
+    <div className='flex h-screen m-2 border border-border rounded-lg overflow-hidden'>
       {/* Sidebar */}
       <aside className='w-20 bg-sidebar flex flex-col items-center py-4 md:py-6 px-1 md:px-2 rounded-l-lg'>
         {/* Burger Menu */}
@@ -72,20 +73,16 @@ export const DashboardLayout = () => {
             ))}
           </div>
 
-          {/* Search bar */}
-          <div className='flex items-center bg-white/5 rounded-lg px-4 py-1 border border-sidebar-ring'>
-            <Search className='h-4 w-4 text-muted-foreground mr-2' />
-            <input
-              type='text'
-              placeholder='Search...'
-              className='border-none outline-none text-sidebar-foreground placeholder:text-muted-foreground w-48 h-auto p-0 focus-visible:ring-0'
-            />
-          </div>
+          <SearchBar />
         </header>
 
         {/* Main content area */}
-        <main className='flex-1 bg-main-background px-12 py-8 overflow-auto border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg'>
-          <Outlet />
+        <main className='flex-1 bg-main-background px-8 py-8 border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg overflow-hidden'>
+          <ScrollArea className='h-full w-full'>
+            <div className='pr-10'>
+              <Outlet />
+            </div>
+          </ScrollArea>
         </main>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Download, RefreshCcw, RotateCcw, Zap } from 'lucide-react';
+import { VariablesSheet } from '@/components/variables-sheet';
+import { Download, RefreshCcw, Zap } from 'lucide-react';
 
 export const DashboardHeader = () => {
   return (
@@ -12,10 +13,7 @@ export const DashboardHeader = () => {
         <Button variant='outline' size='sm'>
           <RefreshCcw className='h-4 w-4' />
         </Button>
-        <Button variant='outline' size='sm'>
-          <RotateCcw className='h-4 w-4' />
-          Edit Variables
-        </Button>
+        <VariablesSheet />
         <Button variant='outline' size='sm'>
           <Download className='h-4 w-4' />
           Export
