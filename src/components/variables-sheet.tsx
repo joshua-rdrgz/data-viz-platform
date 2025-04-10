@@ -21,20 +21,18 @@ export const VariablesSheet = () => {
           Edit Variables
         </Button>
       </SheetTrigger>
-      <SheetContent className='min-w-[100vw] md:min-w-[700px] p-5'>
+      <SheetContent className='min-w-full md:min-w-[700px] p-5 overflow-y-auto'>
         <SheetHeader>
           <SheetTitle className='text-2xl'>Edit Variables</SheetTitle>
         </SheetHeader>
-        <ScrollArea className='h-full w-full'>
-          <div className='w-full px-4'>
-            <VariablesSheetTopbar />
-            <div className='mt-8 flex flex-col gap-4'>
-              <VariablesSheetSelection />
-              <FakeCollapsible title='Primary Variables' />
-              <FakeCollapsible title='Secondary Variables' />
-            </div>
+        <div className='w-full px-4'>
+          <VariablesSheetTopbar />
+          <div className='mt-8 flex flex-col gap-4'>
+            <VariablesSheetSelection />
+            <FakeCollapsible title='Primary Variables' />
+            <FakeCollapsible title='Secondary Variables' />
           </div>
-        </ScrollArea>
+        </div>
       </SheetContent>
     </Sheet>
   );

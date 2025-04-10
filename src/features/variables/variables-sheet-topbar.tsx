@@ -4,7 +4,7 @@ import { RefreshCcw, Sparkles } from 'lucide-react';
 
 export const VariablesSheetTopbar = () => {
   return (
-    <div className='flex items-center justify-between gap-2 mt-4'>
+    <div className='flex flex-wrap items-center justify-between gap-2 mt-4'>
       <SearchBar className='flex-1' />
       <div className='flex items-center gap-2'>
         <Button variant='outline' size='sm' className='w-32'>
