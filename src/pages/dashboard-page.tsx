@@ -9,10 +9,10 @@ export const DashboardPage = () => {
       <DashboardHeader />
       <BestScenarioResults />
       <div className='grid grid-cols-[60%_40%] gap-6'>
-        <div className='flex flex-col h-full'>
+        <div className='h-[500px]'>
           <DashboardGraph />
         </div>
-        <div className='flex flex-col h-full'>
+        <div className='h-[500px]'>
           <DashboardKpis />
         </div>
       </div>
