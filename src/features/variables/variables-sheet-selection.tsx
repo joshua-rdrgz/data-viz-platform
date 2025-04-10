@@ -76,8 +76,8 @@ export const VariablesSheetSelection = () => {
                   onMouseEnter={() => handleMouseEnter(variable)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Sparkles className='h-3 w-3' />
                   {variable.name}
+                  <Sparkles className='h-3 w-3' />
                   {variable.selected ? (
                     <CheckIcon className='h-4 w-4' />
                   ) : (
