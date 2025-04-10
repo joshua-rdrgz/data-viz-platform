@@ -1,3 +1,4 @@
+import { DashboardLayout } from '@/components/dashboard-layout';
 import { PrivateRoute } from '@/features/auth/private-route';
 import { DashboardPage } from '@/pages/dashboard-page';
 import { FullErrorPage } from '@/pages/full-error-page';
@@ -30,9 +31,15 @@ export const router = createBrowserRouter([
     element: <PrivateRoute />,
     children: [
       {
-        path: '/dashboard',
-        element: <DashboardPage />,
-        errorElement: <FullErrorPage />,
+        path: '/',
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: '/dashboard',
+            element: <DashboardPage />,
+            errorElement: <FullErrorPage />,
+          },
+        ],
       },
     ],
   },
