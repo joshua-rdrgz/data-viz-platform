@@ -55,7 +55,7 @@ export const DashboardLayout = () => {
       {/* Main content */}
       <div className='flex flex-col flex-1'>
         {/* Top bar */}
-        <header className='h-20 bg-sidebar flex items-center justify-between px-8 rounded-t-lg'>
+        <header className='h-20 bg-sidebar flex items-center justify-between px-12 rounded-t-lg'>
           <div className='flex items-center gap-2'>
             {topTabs.map((tab, index) => (
               <Button
@@ -84,7 +84,7 @@ export const DashboardLayout = () => {
         </header>
 
         {/* Main content area */}
-        <main className='flex-1 bg-card p-8 overflow-auto border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg'>
+        <main className='flex-1 bg-main-background px-12 py-8 overflow-auto border-t border-l border-sidebar-border rounded-b-lg rounded-l-lg'>
           <Outlet />
         </main>
       </div>
