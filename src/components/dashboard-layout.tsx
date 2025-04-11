@@ -9,6 +9,7 @@ import {
 import { Outlet } from 'react-router-dom';
 import { Button } from './ui/button';
 import { SearchBar } from './ui/search-bar';
+import { UserMenu } from './user-menu';
 
 export const DashboardLayout = () => {
   const navItems = [
@@ -30,26 +31,36 @@ export const DashboardLayout = () => {
       {/* Sidebar */}
       <aside className='w-20 shrink-0 bg-sidebar flex flex-col items-center py-4 md:py-6 px-1 md:px-2 rounded-l-lg'>
         {/* Burger Menu */}
-        <div className='hidden md:block'>
+        <div className='hidden md:block mb-8'>
           <Menu className='h-7 w-7 text-sidebar-foreground' />
         </div>
-        <nav className='flex flex-col gap-8 mt-16'>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = item.label === 'Home';
-            return (
-              <Button
-                key={item.label}
-                variant='ghost'
-                size='icon'
-                className={`p-2.5 rounded-lg ${isActive ? 'bg-white/10 text-sidebar-foreground' : 'text-muted-foreground hover:text-sidebar-foreground'}`}
-                title={item.label}
-              >
-                <Icon className='size-5' />
-              </Button>
-            );
-          })}
-        </nav>
+
+        {/* Main Navigation */}
+        <div className='flex flex-col flex-1 items-center'>
+          {/* Top Navigation Items */}
+          <nav className='flex flex-col gap-8'>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = item.label === 'Home';
+              return (
+                <Button
+                  key={item.label}
+                  variant='ghost'
+                  size='icon'
+                  className={`p-2.5 rounded-lg ${isActive ? 'bg-white/10 text-sidebar-foreground' : 'text-muted-foreground hover:text-sidebar-foreground'}`}
+                  title={item.label}
+                >
+                  <Icon className='size-5' />
+                </Button>
+              );
+            })}
+          </nav>
+
+          {/* User Menu */}
+          <div className='mt-auto'>
+            <UserMenu />
+          </div>
+        </div>
       </aside>
 
       {/* Main content */}

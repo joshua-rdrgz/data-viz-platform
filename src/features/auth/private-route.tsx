@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 export const PrivateRoute = () => {
   const { data, isLoading } = useUser();
 
+  console.log('PRIVATE ROUTE');
+
   // Show a loading spinner while the user is being authenticated
   if (isLoading) {
     return (
@@ -17,7 +19,15 @@ export const PrivateRoute = () => {
 
   // If the user is not authenticated, show an error message and redirect to the login page
   if (!data?.user) {
-    toast.error('Access Denied: Please log in!');
+    // Check if this is a deliberate logout
+    const isDeliberateLogout =
+      localStorage.getItem('deliberateLogout') === 'true';
+
+    // Only show the error toast if this is not a deliberate logout
+    if (!isDeliberateLogout) {
+      toast.error('Access Denied: Please log in!');
+    }
+
     return <Navigate to='/login' replace />;
   }
 
