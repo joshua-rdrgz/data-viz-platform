@@ -2,6 +2,8 @@
 
 A modern web application for data visualization built with React, TypeScript, Tailwind CSS, and Firebase that implements three key screens and three interactive behaviors as specified in the assessment requirements.
 
+LIVE DEPLOYMENT: [https://data-viz-platform-pink.vercel.app](https://data-viz-platform-pink.vercel.app)
+
 ## Features Implemented
 
 ### Screens & Interactions
