@@ -6,8 +6,6 @@ import toast from 'react-hot-toast';
 export const PrivateRoute = () => {
   const { data, isLoading } = useUser();
 
-  console.log('PRIVATE ROUTE');
-
   // Show a loading spinner while the user is being authenticated
   if (isLoading) {
     return (
