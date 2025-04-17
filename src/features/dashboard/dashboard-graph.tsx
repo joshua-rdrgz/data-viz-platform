@@ -178,7 +178,7 @@ export const DashboardGraph = () => {
                     ticks={[20, 40, 60, 80, 100]}
                   />
                   <Tooltip
-                    cursor={<CustomTooltipCursor height={320} />}
+                    cursor={<CustomTooltipCursor />}
                     content={({ active, payload }) => {
                       if (!active || !payload?.length) return null;
                       return (
